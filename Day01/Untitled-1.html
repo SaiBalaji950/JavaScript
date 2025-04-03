@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+    <h1>Javascript</h1>
+    <script>
+        // Arithmetic operators
+        document.write("Arithmetic operators");
+        function func(){
+            let a = 300;
+            let b = 200;
+            document.write("<br>" + (a + b));
+            document.write("<br>" + (a - b));
+            document.write("<br>" + (a * b));
+            document.write("<br>" + (a / b));
+            document.write("<br>" + (a % b));
+        }
+        func();
+        // Assignment operators
+        document.write("<br><br>Assignment operators");
+        function my(){
+            let a = 300;
+            a += 100;
+            document.write("<br>" + a);
+            a -= 100;
+            document.write("<br>" + a);
+            a *= 100;
+            document.write("<br>" + a);
+            a /= 100;
+            document.write("<br>" + a);
+            a %= 10;
+            document.write("<br>" + a);
+        }
+        my();
+        // Comparison operators
+        document.write("<br><br>Comparison operators");
+        function myfunc(){
+            let a = 300;
+            let b = 200;
+            document.write("<br>" + (a > b));
+            document.write("<br>" + (a < b));
+            document.write("<br>" + (a == b));
+            document.write("<br>" + (a >= b));
+            document.write("<br>" + (a <= b));
+            document.write("<br>" + (a != b));
+        }
+        myfunc();
+        // Logical operators
+        document.write("<br><br>Logical operators");
+        const a = true, b = false;
+        document.write("<br>" + (a && b));
+        document.write("<br>" + (false && true));
+        document.write("<br>" + (false && false));
+        document.write("<br>" + (true && true));
+        document.write("<br>" + (a || b));
+        document.write("<br>" + (false || true));
+        document.write("<br>" + (false || false));
+        document.write("<br>" + (true || true));
+        // Bitwise operators
+        document.write("<br><br>Bitwise operators");
+        document.write("<br>" + (3 & 1));
+        document.write("<br>" + (3 | 1));
+        // Ternary operator
+        document.write("<br><br>Ternary operators");
+        const age = 23;
+        const status = age > 18 ? "Adult: Major" : "Minor";
+        document.write("<br>" + status);
+        const age2 = 15;
+        const status2 = age2 > 18 ? "Adult: Major" : "Adult: Minor";
+        document.write("<br>" + status2);
+        // Delete operator
+        document.write("<br><br>Delete operators");
+        const student = { name: 'Sai Balaji', id: 1057, salary: 15000 };
+        delete student.id;
+        document.write("<br>"+(student));
+        document.write("<br>" + JSON.stringify(student));
+        // String operators
+        document.write("<br><br>String operators");
+        let str1 = "Sai ";
+        let str2 = "Balaji";
+        let str = str1 + str2;
+        document.write("<br>" + str);
+        // typeof operator
+        document.write("<br><br>typeof operators");
+        document.write("<br>" + typeof "Sai Balaji");
+        document.write("<br>" + typeof 1057);
+        document.write("<br>" + typeof false);
+        document.write("<br>" + typeof {});
+        document.write("<br>" + typeof []);
+        document.write("<br>" + typeof undefined);
+        // instanceof operator
+        document.write("<br><br>instanceof operators");
+        const arr = [1, 2, 3, 4, 5];
+        document.write("<br>" + (arr instanceof Array));
+        document.write("<br>" + (arr instanceof Object));
+        document.write("<br>" + (arr instanceof Number)); 
+        document.write("<br>" + (arr instanceof String)); 
+        // Chaining operators
+        document.write("<br><br>Chaining operators");
+        document.write("<br>" + student.salary);
+        document.write("<br>" + student.name);
+        document.write("<br>" + student.id);
+        // Comma operator
+        document.write("<br><br>Comma operators");
+        let x, y;
+        const z = (x = 20, y = 10, x + y);
+        document.write("<br>" + z);
+    </script>
+    <img src="Screenshot 2025-04-03 181556.png" alt="Output">
+    <img src="Screenshot 2025-04-03 181609.png" alt="Output">
+</body>
+</html>
