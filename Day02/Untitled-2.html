@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Variables</title>
+</head>
+<body>
+    <h1>JS Variables</h1>
+    <script>
+        //In JavaScript, a variable is a named storage location that holds a value, which can be any data type, such as numbers, strings, objects, etc. It can be declared using keywords like var, let, or const.Variables as Placeholders for unknown values: They can be used in places where the values they represent are unknown when the code is written.Variables as Code Clarifies: They can make the purpose of your code cleaner.
+        //using var keyword
+        document.write("<h2>Using Var Keyword</h2>");
+        var a=100;
+        document.write("<br>"+a);
+        //using const keyword
+        document.write("<br><h2>Using const Keyword</h2>");
+        const b=100;
+        document.write("<br>"+b);
+        //using let keyword
+        document.write("<br><h2>Using let Keyword</h2>");
+        let c=100;
+        document.write("<br>"+c);
+        //Local Variables JavaScript local variables are declared inside the curly braces {} or a function. In JavaScript, variables are accessible within the function or block only where they are declared.
+        document.write("<br><h2>Local Variables</h2>");
+        func();
+        function func(){
+            let ab=300;
+            document.write("<br>"+ab);
+        }
+        function myfunc(){
+            const ba=200;
+            document.write("<br>"+ba);
+        }
+        myfunc();
+        //document.write("<br>"+ba);
+        my();
+        mine();
+        let cd;
+        function my(){
+            let cd=20000;
+            document.write("<br>"+cd);
+        }
+        function mine(){
+            let cd=15000;
+            document.write("<br>"+cd);
+        }
+        document.write("<br>"+cd);
+        //Global Variables - Global variables are those variables that are declared outside of any function and can be accessible from anywhere within the script, including these functions.
+        document.write("<br><h2>Global Variables</h2>");
+        var id=1001;
+        greet();
+        function greet(){
+            document.write("Global Value is:",id);
+        }
+        {
+            var id=10000;//Local Variable
+            document.write("<br>"+"Local Value is:",id);
+        }
+        let global=200;
+        function global1(){
+            global+=100;
+        }
+        function globe(){
+            document.write("<br>"+global);
+        }
+        //global1(); we are using comments because first we need to declare global1 after that we need to declare globe 
+        //in global1 function we declare increment. so firstly we need to call global1 after that we call globe.
+        globe();
+        global1();
+        globe();
+        var appName = "MyApp";  
+        var appName = "OtherApp";  // OtherApp overwrites MyApp
+        document.write("<br>"+appName);  
+    </script>
+</body>
+</html>
