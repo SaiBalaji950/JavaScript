@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Statements</title>
+</head>
+<body>
+    <h1>JS Statements</h1>
+    <script>
+        //if-statements
+        document.write("if statement");
+        var a=20;
+        if(a>10){
+            document.write("<br>"+"20 is greater than 10");
+        }
+        //if-else statements
+        document.write("<br><br>"+"if-else statements");
+        var b=30;
+        if(b>40){
+            document.write("30 is greater than 40");
+        }
+        else{
+            document.write("<br>"+"30 is not greater than 40");
+        }
+        //elif(else if) statements
+        document.write("<br><br>"+"elif(else-if) statements");
+        var c=200;
+        if(c==50){
+            document.write("<br>"+"200 is equals to 50");
+        }
+        else if(a==100){
+            document.write("<br>"+"200 is equals to 100");
+        }
+        else{
+            document.write("<br>200 is not equals to 50");
+        }
+        //Switch Statements
+        document.write("<br><br>"+"Switch Statements");
+        const marks=75;
+        switch(marks){
+            case 25:
+                document.write("<br>"+"Iam failed");
+                break;
+            case 50:
+                document.write("<br>"+"Iam pass but not distinction");
+                break;
+            case 75:
+                document.write("<br>"+"Iam passed with distinction");
+                break;
+            default:
+                document.write("<br>"+"Sorry there are no marks");
+        }
+        // without the use of a break in JavaScript
+        document.write("<br><br>"+"Without using break statement");  
+        const expression = 'Apple';  
+        switch (expression){  
+            case 'Oranges':
+                document.write("<br>"+'I prefer Oranges');
+            case 'watermelons':
+                document.write("<br>"+'I prefer watermelon too!');
+            case 'Apple':
+                document.write('<br>One apple a day keeps the doctor away ');
+            default:
+                document.write('<br>Sorry, we are out of ${expression}');  
+        } 
+        //Looping Statements
+        //For Loop
+        document.write("<br><br>"+"for loop");
+        for(i=1;i<=5;i++){
+            document.write("<br>"+i);
+        }
+        document.write("<br>")
+        for(j=5;j>=1;j--){
+            document.write("<br>"+j);
+        }
+        document.write("<br>");
+        let k=5;
+        for (let l=1;l<=k;l++){
+            document.write("<br>"+"*".repeat(l));
+        }
+        document.write("<br>");
+        let m=1;
+        for(let n=5;n>=m;n--){
+            document.write("<br>"+'*'.repeat(n));
+        }
+        document.write("<br>");
+        //While Loop
+        document.write("<br><br>"+"While Loop<br>");
+        let ab=1;
+        while(ab<=5){
+            document.write("<br>"+ab);
+            ab++;
+        }
+        document.write("<br>");
+        let cd=5;
+        while(cd>=1){
+            document.write("<br>")
+            document.write(cd);
+            cd--;
+        }
+        document.write("<br>");
+        let ba=5;
+        let dc=1;
+        while(dc<=ba){
+            document.write("<br>"+'*'.repeat(dc));
+            dc++;
+        }
+        document.write("<br>");
+        let ef=1;
+        let gh=5;
+        while(gh>=ef){
+            document.write("<br>"+'*'.repeat(gh));
+            gh--;
+        }
+        document.write("<br>");
+        document.write("Factorial Number Using While Loop");
+        document.write("<br>Factorial of multiple numbers");
+        let z=10,y=1,fact=1;
+        while(y<=z){
+            fact=fact*y;
+            y++;
+            document.write("<br>"+"The Factorial of our Number is ",fact);
+        }
+        document.write("<br>");
+        document.write("<br>"+"The Factorial of Single Number");
+        let x=6,w=1,facto=1;
+        while(w<=x){
+            facto=facto*w;
+            w++;
+        }
+        document.write("<br>The Factorial Number is ",facto);
+        document.write("<br>");
+        document.write("<br>Nested Loops");
+        document.write("<br>Multiplication tables upto 10");
+        let s=1;
+        while(s<=10){
+            let row="";
+            let t=1;
+            while(t<=10){
+                row+=(s*t)+"\t";
+                t++;
+            }
+            document.write("<br>"+row);
+            s++;
+        }
+        //Do-While Loop
+        document.write("<br>");
+        document.write("<br>do-while loop");
+        let r=1;
+        do{
+            document.write("<br>"+r);
+            r++;
+        }while(r<=5)
+        document.write("<br>");
+        document.write("<br>Finding Factorial Number");
+        function factorialnumber(n){
+            let record=1;
+            let q=1;
+            do{
+                record*=q;
+                q++;
+            }while(q<=n);
+            return record;
+        }
+        const numbers=10;
+        const record=factorialnumber(numbers);
+        document.write("<br>"+`The Factorial of ${numbers} is ${record}`);
+        document.write("<br>Finding Prime Numbers");
+        function primenumber(prime){
+            if(prime<2)return false;
+            let p=2;
+            let primenumber=true;
+            do{
+                if(prime%i==0){
+                    primenumber=false;
+                    break;
+                }
+                p++;
+            }while(p<=Math.sqrt(prime));
+            return primenumber;
+        }
+        let number=41;
+        if(primenumber(number)){
+            document.write("<br>"+number+"is a prime number");
+        }else{
+            document.write("<br>"+number+"is not a prime number");
+        }
+        //for of loop
+        document.write("<br>");
+        document.write("<br>for-of loop")
+        document.write("<br>for-of loop by using Strings");
+        let students=["SB","Mi","BC","Pu"];
+        for(let student of students){
+            document.write("<br>"+student);
+        }
+        document.write("<br>");
+        let letters='aeiou';
+        for(let vowels of letters){
+            document.write("<br>"+vowels);
+        }
+        document.write("<br>");
+        document.write("<br>for-of loop by using map");
+        let map=new Map();
+        map.set('name','Sai Balaji');
+        map.set('id',1057);
+        map.set('Salary',15000);
+        for(let[key,value] of map){
+            document.write("<br>"+key+' - '+value);
+        }
+        document.write("<br>");
+        document.write("<br>for-of loop by using sets");
+        let set=new Set([12,24,36,48,60]);
+        for(let values of set){
+            document.write("<br>"+values);
+        }
+        document.write("<br>");
+        document.write("<br>for-of loop by using arrays");
+        const array=[12,3,36,4,48];
+        for(let val of array){
+            document.write("<br>"+`Value: ${val}`);
+            for(let o=1;o<=3;o++){
+                document.write("<br>"+`Value plus ${o} : ${val+o}`);
+            }
+        }
+        document.write("<br>");
+        for(const mul of [12,14,16,18,20]){
+            document.write("<br>"+`Value: ${mul}`);
+            for(let yz=1;yz<=10;yz++){
+                document.write("<br>"+`${mul}*${yz}=${mul*yz}`);
+            }
+        }
+        document.write("<br>");
+        document.write("<br>for-in loop");
+        const items={fans:10,lights:5,cooler:2};
+        for(const devices in items){
+            document.write("<br>"+items[devices]);
+        }
+        document.write("<br>");
+        const salaries={sb:15000,mi:15000,bc:10000};
+        for(let keys in salaries){
+            let salary="$"+salaries[keys];
+            document.write("<br>"+`${keys}:${salary}`);
+        }
+        const objects={a:10,b:20,c:30,d:40,e:50};
+        for(let lock in objects){
+            document.write("<br>"+`Key: ${lock}`);
+            for(let xy=1;xy<=10;xy++){
+                document.write("<br>"+`Value Multiplied by ${xy}: ${objects[lock]*xy}`);
+            }
+        }
+        document.write("<br>");
+        document.write("<br>Return Statements");
+        var rest=test(20,20);
+        function test(x,y){
+            return x*y;
+        }
+        document.write("<br>"+rest);
+        var we=bye();
+        function bye(){
+            var wx=1;
+            while(wx){
+                document.write("<br>"+wx);
+                if(wx<=3){
+                    return;
+                }
+                document.write("<br>"+wx);
+                wx++;
+            }
+            document.write("<br>"+"Hello World");
+        }
+        function information(){
+            let fname="Sai Balaji";
+            let lname="Vennelakanti";
+            let age=22;
+            let id=1057;
+            let salary=15000;
+            return [fname,lname,age,id,salary];
+        }
+        const [fname,lname,age,id,salary]=information();
+        document.write("<br>"+"Name= "+fname+" "+lname);
+        document.write("<br>"+"Age= "+age);
+        document.write("<br>"+"Id= "+id);
+        document.write("<br>"+"Salary= "+salary);
+        document.write("<br>");
+        function report(){
+            let first="Sai Balaji";
+            let last="Vennelakanti";
+            let years=22;
+            let no=1057;
+            let sal=15000;
+            return {first,last,years,no,sal};
+        }
+        let{first,last,years,no,sal}=report();
+        document.write("<br>"+"Name= "+first+" "+last);
+        document.write("<br>"+"Age="+" "+years);
+        document.write("<br>"+"Id= "+" "+no);
+        document.write("<br>"+"Salary= "+sal);
+    </script>
+</body>
+</html>
