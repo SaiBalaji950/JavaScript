@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("<h1>Event Loop</h1>");
+        document.write("start");
+        setTimeout(()=>{
+            console.log("<br>"+"setTimeout callback");
+        },0);
+        Promise.resolve().then(()=>{
+            document.write("<br>"+"Promise Resolved");
+        });
+        document.write("<br>"+"End");
+        document.write("<br><h2>MicroTasks and Macrotasks</h2>");
+        //Microtasks: They are higher-priority tasks that run before macrotasks, such as promises and queueMicrotask ().
+        //Macrotasks: They are lower-priority tasks that run after microtasks, such as setTimeout, setInterval, and DOM events.
+        document.write("Start");
+        setTimeout(()=>console.log("Macrotasks are lower-priority tasks that run after microtasks,<br>such as setTimeout,setInterval and Dom Events"),0);
+        Promise.resolve().then(()=>document.write("<br>Microtasks are higher priority tasks that run before macrotasks,<br> such as promises and queueMicrotask"));
+        document.write("<br>End");
+        document.write("<br><h1>setTimeout</h1>");
+        var a=setTimeout(func,2000);
+        function func()
+        {
+            var win=window.open();
+            win.document.write("<h2>Welcome to Balaji World</h2>");
+            setTimeout(function(){win.close()},2000);
+        }
+    </script>
+</body>
+</html>

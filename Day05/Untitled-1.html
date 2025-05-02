@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Javascript Functions</h1>
+    <script>
+        function greet(name,msg){
+            document.write(msg+ ","+name+"!");
+        }
+        greet('Balaji','Hello');
+        const fun=function(a,b) {return a*b};
+        let func=fun(200,20);
+        document.write("<br>"+func);
+        document.write("<br>");
+        document.write("<br><h1>Types of Functions</h1>");
+        document.write("<h2>Arrow Functions</h2>");
+        var array=["Balaji","Mi","Upendra","Chaithanya"];
+        var arr=array.map(function(s){return s.length;});
+        document.write("Normal Way ",arr);
+        const ar=array.map((s)=>s.length);
+        document.write("<br>"+"Using Arrow Functions: ",ar);
+        document.write("<br>");
+        document.write("<h2>CallBack Functions</h2>");
+        function alarm(name,amount){
+            alert("Hello "+name+" ,Your Bill is "+amount);
+            document.write("<h2>Hello " + name + ", Your Bill is " + amount + "</h2>");
+        }
+        function getData(callback){
+            var name=prompt("Welcome to my world! \n What's your name?");
+            var amount=prompt("Enter Some Amount");
+            callback(name,amount);
+            
+        }
+        getData(alarm);
+        document.write("<h2>Anonymous Functions</h2>");//Anonymous Functions means giving the function without a function name
+        let Anonymous=function(){
+            document.write("This is an Anonymous Function");
+        }
+        Anonymous();
+        document.write("<h2>Immediately Invoked Function Expressions(IIFE)</h2>");
+        function hi(){
+            document.write("It is a Regular Expression");
+        }
+        hi();
+        (function(){document.write("<br>Immediately Invoked Function Expression(IIFE)");})();
+        document.write("<br><h1>Nested Functions</h1>");//Nested Functions means functions defined with another functions
+        function outer(a){
+            function inner(b){
+                return a+b;
+            }
+            return inner;
+        }
+        let ab=outer(11);
+        document.write(ab(11));
+        document.write("<br>Now we will Discuss about the each types of functions expressions deeply");
+        document.write("<br><h1>Arrow Functions in JavaScript</h1>");
+        var sum=(x,y)=>x+y;
+        document.write(sum(200,99));
+        document.write("<br><h2>Arrow Functions Without Parameters</h2>");
+        var demo=()=>{
+            document.write("This is just demo arrow function without giving any message to the function");
+        }
+        demo();
+        document.write("<br><h2>Arrow Functions with Single Parameter</h2>");
+        var greetings=name=>"Hello "+name;
+        document.write(greetings('Sai Balaji'));
+        document.write("<br><h2>Arrow Functions with Multiple Parameters</h2>");
+        var wishing=(name,msg)=>{
+            document.write(msg+","+name);
+        }
+        wishing('Sai Balaji','Hello');
+        document.write("<br><h2>Arrow Functions with Default Parameters</h2>");
+        var wish=(name="Sai Balaji",msg="Hello")=>msg+"! "+name;
+        document.write(wish());
+        document.write("<br><h2>Arrow Functions with Object Literals</h2>");
+        const demoes=(name,salary)=>({Name:name,Salary:salary});
+        const result=demoes("Sai Balaji",15000);
+        document.write(result);
+        document.write("<br>"+result.Name);
+        document.write("<br>"+result.Salary);
+        document.write("<br><h2>Functions Rest of the Parameter</h2>");
+        function sum(...numbers){
+            let total=0;
+            for(let num of numbers){
+                total+=num;
+            }
+            return total;
+        }
+        document.write(sum(1,2));
+        document.write("<br>"+sum(99,103));
+        document.write("<br><h2>Argument Object</h2>");
+        function ExampleFunction(){
+            document.write("Number of arguments: ",arguments.length);
+            for(let we=0;we<arguments.length;we++){
+                document.write("Argument "+ we +":"+arguments[we]+"<br>");
+            }
+        }
+        ExampleFunction("Sai Balaji",1057,15000);
+        ExampleFunction("Only One Argument");
+        ExampleFunction();
+        document.write("<br>");
+        document.write("<br><h2>Call By Value</h2>");
+        function changevalue(othernum){
+            document.write("Inside Function Before Change: "+othernum);
+            othernum=200;
+            document.write("<br>Inside Function After Change: "+othernum);
+        }
+        let mynumber=100;
+        document.write("<br>Before Function Call: "+mynumber);
+        changevalue(mynumber);
+        document.write("<br>After Function Call: "+mynumber);
+        document.write("<br>");
+        document.write("<br><h2>Call By Reference</h2>");
+        function updateperson(person){
+            person.age+=5;
+            document.write("<br>Inside Function: "+JSON.stringify(personsinfo));
+        }
+        let personsinfo={name:"Sai Balaji",age:18};
+        document.write("<br>Before Function Call: "+JSON.stringify(personsinfo));
+        updateperson(personsinfo);
+        document.write("<br>After Function Call: "+JSON.stringify(personsinfo));
+        document.write("<br>");
+        document.write("<br><h1>Default Parameters</h1>");
+        function addition(a=100,b=200){
+            return a+b;
+        }
+        document.write("Addition of 100 and 200 is: ",addition());
+        document.write("<br>Addition of 200 and 2000 is: ",addition(200,2000));
+        document.write("<br> Case 1 of Default Parameters is Passing Undefined as the parameter");
+        function example(x=10){
+            document.write("<br>"+x);
+        }
+        example(undefined);
+        document.write("<br>If we pass undefined in the parameter it gives default value");
+        document.write("<br>Case 2 of Default Parameters is Passing null values as the parameter");
+        function example1(a=5){
+            document.write("<br>"+typeof a);
+            document.write("<br>The Value of a is: "+a);
+        }
+        example1();
+        example1(undefined);
+        example1("");
+        example1(null);
+        document.write("<br>Evaluating default parameters at call time");
+        function combine(value,array=[]){
+            array.push(value);
+            return array;
+        }
+        document.write("<br>"+JSON.stringify(combine(100)));
+        document.write("<br>"+JSON.stringify(combine(2)));
+        document.write("<br>");
+        document.write("<br><h2>Javascript Hoisting</h2>");
+        //In JavaScript, hoisting is a built-in behavior that helps us move the declaration of functions, variables, and classes to the top of their scope before code execution.
+        document.write(qw);
+        var qw=100;//it shows undefined or empty because 
+        document.write("<br>"+qw);// this is tdz(temporal dead zone It is a period during code execution where variables declared with let and const are hoisted but inaccessible.)
+        document.write("<br><h3>Variable Hosting</h3>");
+        document.write(er);
+        var er=200;
+        document.write("<br>"+demo);
+        var demo;
+        document.write("<br><h3>Function Hoisting</h3>");
+        document.write(den());
+        function den(){
+            return "Hello! Sai Balaji";
+        }
+        document.write("<br><h3>Class Hoisting</h3>");
+        // var myInstance = new MyClass(); // ReferenceError  
+        // class MyClass {  
+        // constructor() {  
+        //     console.log("Instance created");  
+        // }  
+        // }
+        document.write("it gives reference error see the code");
+        document.write("<br><h2>Features of Jascript Hoisting</h2>");
+        document.write("<h3>Variable Declarations</h3>");
+        document.write(myvar);
+        var myvar=100;
+        document.write("<br><h3>Function Declaration</h3>");
+        myFunction();    
+        function myFunction() {
+            document.write("Hello!");    
+        }
+        document.write("<br><h3>Function Expressions and Block Scoping</h3>");
+        // myfunc();
+        // function func(){
+        //     document.write("Hello");
+        // } this is an function expression
+        //now below code is block scoping
+        // console.log(myVar); // ReferenceError: Cannot access 'myVar' before initialization    
+        // let myVar = 10;  
+        document.write("It Shows an reference error see the code");
+        document.write("<br><h1>Anonymous Function</h1>");//Anonymous is something is undefined or has no identity
+        let xy=function(){
+            document.write("It is an anonymous function");
+        }
+        xy();
+        document.write("<br><h3>Immediate Execution of a Function</h3>");
+        (function(){
+            document.write("Hello! Balaji");
+        })();
+        document.write("<br><h2>Function Call Method</h2>");
+        function Employee(id,name){
+            this.id=id;
+            this.name=name;            
+        }
+        function worker(id,name){
+            Employee.call(this,id,name);
+        }
+        document.writeln(new worker(1057,"Sai Balaji").name);
+        document.writeln("<br>"+new worker(1057,"Sai Balaji").id);
+        document.write("<br>");
+        function holder(no,na){
+            this.no=no;
+            this.na=na;
+        }
+        function per(no,na){
+            holder.call(this,no,na);
+        }
+        function temp(no,na){
+            holder.call(this,no,na);
+        }
+        var per_p=new per(1057,"Sai Balaji");
+        var temp_p=new temp(99,'mi');
+        document.write(per_p.no+" "+per_p.na);
+        document.write("<br>"+temp_p.no+" "+temp_p.na);
+        document.write("<br><h2>Apply Method</h2>");
+        var array=[99,103,1030];
+        var max=Math.max.apply(null,array);
+        var min=Math.min.apply(null,array);
+        document.write(max);
+        document.write("<br>"+min);
+        document.write("<br>");
+        var arr=[1,2,3,4,5];
+        document.write("<br>Arr is: "+arr);
+        var newarr=[6,7,8,9,10];
+        document.write("<br>newarr is: "+newarr);
+        var multiarr=["one","two","three","four","five"];
+        document.write("<br>multiarr is: "+multiarr);
+        arr.push.apply(arr,newarr);
+        document.write("<br>After Combining both arr and new arr is: "+arr);
+        arr.push.apply(arr,multiarr);
+        document.write("<br>After Combining both arr and multi arr is: "+arr);
+        document.write("<br><h2>Bind Method</h2>");
+        var website={name:"Sai Balaji",getname:function(){return this.name;}};
+        var web=website.getname;
+        var webpage=web.bind(website);
+        document.write(webpage());
+        document.write("<br>");
+        this.name="Sai";
+        var browser={name:"Balaji",getname:function(){return this.name;}};
+        document.write("<br>"+browser.getname());
+        var browse=browser.getname;
+        document.write(browse());
+        var bound=browse.bind(browser);
+        document.write(bound());
+    </script>    
+</body>
+</html>

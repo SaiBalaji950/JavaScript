@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="start()">Open Window</button>
+    <script>
+        document.write("<br><h1>setTimeout</h1>");
+        function start() {
+            var win = window.open();
+            win.document.write(`
+            <h2>Welcome to Balaji World</h2>
+            <button onclick="window.opener.stop()">Stop Window</button>`);
+            closeTimer=setTimeout(function () {
+                win.close();}, 2000);
+            }
+        function stop(){
+            clearTimeout(closeTimer);
+        }
+        document.write("<br><h1>setInterval</h1>");
+</script>
+</body>
+</html>

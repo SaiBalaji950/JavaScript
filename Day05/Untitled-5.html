@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Higher Order Functions in JavaScript</h1>
+    <script>
+        function greet(name){
+            document.write("Hello  "+`${name}`);
+        }
+        function ui(callback){
+            const name=prompt("Enter Your Name Here");
+            alert(callback(name));
+        }
+        ui(greet);
+        document.write("<br><h1>Common High Order Functions In Javascript</h1>");
+        document.write("<h2>Map</h2>");
+        const num=[99,103,3,5];
+        document.write("Given numbers are: "+num);
+        const add=num.map(number=>number+1);
+        document.write("<br>adding 1 to following numbers"+add);
+        document.write("<h2>Filter</h2>");
+        const numbers=[1,2,3,4,5];
+        const fill=numbers.filter(num=>num%2===0);
+        const filt=numbers.filter(num=>num%2===1);
+        document.write("Even Numbers are: "+fill+"<br>");
+        document.write("Odd Numbers are: "+filt);
+        document.write("<br><h2>Reduce</h2>");
+        const numeric=[11,12,13,14,15];
+        const red=numeric.reduce((acc,num)=>acc+num,0);
+        document.write("Addition of 11+12+13+14+15 is: "+red);
+        document.write("<br><h2>Function Composition</h2>");
+        const addition=x=>x+10;
+        const multiplication=x=>x*10;
+        const compose = (f, g) => (x) => f(g(x));
+        const am=compose(multiplication,addition);
+        document.write(am(10));
+        document.write("<br><h2>Currying</h2>");
+        const adding=x=>y=>x+y;
+        const add5=adding(10);
+        document.write("10+3 is: "+add5(3));
+        document.write("<br><h1>Advantages of Higher Order Functions in JavaScript</h1>");
+        document.write("<h2>Reusability of Code</h2>");
+        /*Because they enable developers to design generic functions that may be changed via callbacks, 
+        higher-order functions facilitate code reuse. This modularity reduces redundancy and improves maintainability by allowing functions to be reused across many application 
+        components.*/
+        function execute(fn) {
+            return function(...args) {
+                document.write("Executing Function with Arguments: " + args + "<br>");
+                return fn(...args);
+            }
+        }
+        const added = (a, b) => a + b;
+        const addwithoutLogging = execute(added);
+        document.write("Result: " + addwithoutLogging(2, 3));
+        document.write("<br><h2>Better Readability and Maintainability of the Code</h2>");
+        const nums=[1,2,3,4,5];
+        const double=x=>x*2;
+        const isodd=x=>x%2===1;
+        const odddouble=nums.filter(isodd).map(double);
+        document.write(odddouble);
+        document.write("<br><h2>Facilitation of Functional Programming</h2>");
+        const increment=x=>x+1;
+        const doubles=x=>x*2;
+        const itd=compose(increment,doubles);
+        document.write(itd(10));
+        document.write("<br><h2>Abstraction and Higher-Level Operations</h2>");
+        const array=[1,2,3,4,5];
+        const sum=array.reduce((acc,value)=>acc+value,0);
+        const product=array.reduce((acc,value)=>acc*value,1);
+        document.write(sum);
+        document.write("<br>"+product);
+        document.write("<br><h2>Partial Application and Currying</h2>");
+        const multiply=x=>y=>x*y;
+        const doubled=multiply(2);
+        const triple=multiply(3);
+        document.write(doubled(100));
+        document.write("<br>"+triple(100));
+        document.write("<br><h2>Encapsulation and Information Hiding</h2>");
+        function create(){
+            let count=0;
+            return function(){
+                count+=1;
+                return count;
+            };
+        }
+        const counter=create();
+        document.write(counter());
+        document.write("<br>"+counter());
+        document.write("<br>"+counter());
+        document.write("<br>"+counter());
+        document.write("<br>"+counter());
+        document.write("<br><h2>Better Debugging and Testability</h2>");
+        function fetchdata(api,callback){
+            api.fetchdata()
+            .then(data=>callback(null,data))
+            .catch(error=>callback(null,error));
+        }
+        const mockapi={
+            fetchdata:()=>Promise.resolve({sucess:true})
+        };
+        fetchdata(mockapi,(error,data)=>{
+            document.write(data);
+            if (error) {
+                document.write("Error: " + error);
+            } else {
+                document.write("Data: " + JSON.stringify(data));
+            }
+        });
+    </script>
+</body>
+</html>
